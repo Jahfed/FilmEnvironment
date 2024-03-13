@@ -1,0 +1,20 @@
+<!-- searchbar -->
+<app-searchbar></app-searchbar>
+<!-- place for filters and extra attributes -->
+<production-filter [all]="totalProductions" [inProduction]="totalInProduction" [released]="totalReleased"
+    (selectedFilterRadioButtonChanged)="onFilterChanged($event)">
+</production-filter>
+
+<!-- place for content of dashboard -->
+<div class="production-list">
+
+    @for(prod of productions; track prod){
+    @if(selectedFilter==='all'){
+    <production-card class="production-item" [production]="prod"></production-card>
+    } @else if (selectedFilter==='released' && prod.isReleased) {
+    <production-card class="production-item" [production]="prod"></production-card>
+    } @else if (selectedFilter==='inProduction' && (prod.isInProduction || prod.isInPreProduction)){
+    <production-card class="production-item" [production]="prod"></production-card>
+    }
+    }
+</div>

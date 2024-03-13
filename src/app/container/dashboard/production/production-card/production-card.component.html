@@ -1,13 +1,19 @@
 <div class="production-card">
-    <p class="production-title">Sphinx</p>
-    <p class="production-company">
-        Horizon Film<br>
-        Admiraal de Ruijterweg 545<br>
-        1055 MK Amsterdam<br>
-
-        Contact<br>
-        info&#64;horizonfilm.nl<br>
-        +31 (0)20 301 4306<br>
+    <p class="production-title">{{production.title}}</p>
+    <p class="production-description">
+        {{production.type}}<br>{{production.description}}<br>{{production.productionDate}}
     </p>
-    <img class="production-img" src="../../assets/images/productions/production-sphinx.jpg">
+    <div class="production-company">
+
+        <div class="info">
+            {{production.productionCompany}}<br>
+            {{production.pcompanyDetails.address.split(',')[0]}}<br>
+            {{production.pcompanyDetails.address.split(',')[1]}}<br>
+            {{production.pcompanyDetails.address.split(',')[2]}}<br>
+        </div>
+        <div class="info">
+            Contact<br> {{production.pcompanyDetails.email}}<br>
+        </div>
+    </div>
+    <img class="production-img" [src]="production.imageURL">
 </div>
