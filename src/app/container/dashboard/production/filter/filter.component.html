@@ -1,0 +1,16 @@
+<div class="filter-container">
+    <span>Show: </span>
+
+    <input type="radio" name="filter" value="all" [(ngModel)]="selectedFilterRadio"
+        (change)="onSelectedFilterChanged()" />
+    <span>All ({{all}})</span>
+
+    <input type="radio" name="filter" value="inProduction" [(ngModel)]="selectedFilterRadio"
+        (change)="onSelectedFilterChanged()" />
+    <span>In Production ({{inProduction}})</span>
+
+    <input type="radio" name="filter" value="released" [(ngModel)]="selectedFilterRadio"
+        (change)="onSelectedFilterChanged()" />
+    <span>Released ({{released}})</span>
+
+</div>
