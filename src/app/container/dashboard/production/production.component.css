@@ -13,3 +13,15 @@
     width: 15%;
     margin: 10px;
 }
+
+@media only screen and (max-width: 1200px) {
+    .production-item {
+        width: 40%
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .production-item {
+        width: 80%
+    }
+}

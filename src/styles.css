@@ -20,4 +20,6 @@ body {
     text-align: center;
     background: rgb(2, 0, 36);
     background: linear-gradient(201deg, rgba(2, 0, 36, 1) 0%, rgba(38, 36, 113, 1) 28%, rgba(0, 118, 196, 1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }

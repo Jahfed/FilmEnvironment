@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { ProductionListComponent } from './production/production.component';
+import { CrewListComponent } from './apps/crew-list/crew-list.component';
+import { ScriptreaderComponent } from './preproduction/scriptreader/scriptreader.component';
+import { SearchbarComponent } from './production/searchbar/searchbar.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [ProductionListComponent],
+  imports: [ProductionListComponent, CrewListComponent, ScriptreaderComponent, SearchbarComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

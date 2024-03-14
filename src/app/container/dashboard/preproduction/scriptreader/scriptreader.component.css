@@ -1,0 +1,43 @@
+.scenes {
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.scene {
+
+    background-color: rgba(28, 0, 73, 0.242);
+    flex-direction: row;
+    margin-top: 5px;
+    margin: 10px;
+    padding: 25px;
+    text-align: justify;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.173);
+    width: 200px;
+    flex-grow: 4;
+}
+
+.header {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.lines {
+    font-size: 11px;
+}
+
+@media only screen and (max-width: 800px) {
+    .scene {
+        margin: 0px;
+        width: 80vw;
+    }
+
+    .scenes {
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+}

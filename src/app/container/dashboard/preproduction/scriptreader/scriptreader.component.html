@@ -1,0 +1,13 @@
+<div class="scenes">
+    @for (scene of scenesList; track $index) {
+    @if (scene.scene) {
+    <div class="scene">
+
+        <p class="header">{{scene.scene}} / page {{scene.page}}</p>
+        <p class="lines">{{scene.line}}</p>
+
+    </div>
+    }
+    }
+
+</div>
