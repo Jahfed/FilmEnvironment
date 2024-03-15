@@ -7,11 +7,15 @@
     background-color: rgba(15, 2, 43, 0.986);
     top: 0;
     box-shadow: 2px 2px 2px rgba(6, 2, 80, 0.8);
+    display: flex;
+    flex-direction: row;
+
 }
 
 .app-menu {
     margin-top: 5px;
     padding: 5px;
+    width: 50%;
 }
 
 a {
@@ -37,4 +41,10 @@ a:last-child {
 a:hover {
     background-color: rgba(75, 41, 201, 0.6);
     transition: all 0.3s;
+}
+
+.searchbar {
+    width: 100%;
+    align-self: right;
+    margin-right: 0px;
 }

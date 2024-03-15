@@ -26,7 +26,7 @@ export class CrewListComponent {
     address: "Amsterdam",
     phonenumber: ["0611223344"],
     email: ["robert@post.com"],
-    profileUrl: "",
+    profileUrl: "../../../../../assets/images/profilePictures/jahfed.jpg",
     kvk: ""
   }]
 }

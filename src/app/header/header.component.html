@@ -1,7 +1,9 @@
 <div class="app-header">
+
     <div class="app-menu">
         @for (item of menuItems; track $index) {
-        <a [href]="'#/'+item">{{item}}</a>
+        <a [href]="'/'+item">{{item}}</a>
         }
     </div>
+    <div class="searchbar"><app-searchbar></app-searchbar></div>
 </div>
