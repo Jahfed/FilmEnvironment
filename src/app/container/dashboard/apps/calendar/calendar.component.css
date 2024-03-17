@@ -1,0 +1,78 @@
+.date {
+    font-size: 12px;
+    font-style: italic;
+    padding: 20px;
+    width: 100%;
+    margin: auto;
+}
+
+.dateselector {
+    color: black;
+    font-size: 14px;
+    padding: 3px;
+    margin: 0;
+    margin-left: 10px;
+    border-radius: 5px;
+    border-style: none;
+}
+
+.calendar {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.month {
+    border-radius: 10px;
+    background-color: rgba(245, 245, 245, 0.223);
+    margin: auto;
+    margin-bottom: 50px;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.day,
+.currentday {
+    height: 120px;
+    font-size: 10px;
+    text-align: start;
+    padding: 2px;
+    color: black;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-collapse: collapse;
+    cursor: pointer;
+}
+
+.day:hover,
+.currentday:hover {
+    box-shadow: 2px 2px 2px rgba(12, 1, 94, 0.264);
+    border-style: none;
+    background-color: rgba(20, 0, 169, 0.1);
+}
+
+.currentday {
+    font-size: 12px;
+    text-align: start;
+    padding: 0px;
+    color: blue;
+    border-color: blue;
+    border-style: solid;
+    border-collapse: collapse;
+}
+
+h2,
+h3,
+h4 {
+    padding: 10px;
+    margin-top: 30px;
+    color: white;
+    font-size: 16px;
+}
