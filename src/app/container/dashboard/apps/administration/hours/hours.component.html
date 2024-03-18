@@ -1,0 +1,10 @@
+<div class="hoursList">
+    @for (hour of hours; track $index) {
+
+    <div class="hour">
+        <strong>{{getCurrentMember(hour.crewId)}} </strong><br>
+        {{hour.day}} // {{hour.start}} - {{hour.end}} <br>
+        {{calculateHours(hour.start,hour.end,hour.day)}}
+    </div>
+    }
+</div>

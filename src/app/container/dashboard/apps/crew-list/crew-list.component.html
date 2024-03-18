@@ -1,9 +1,9 @@
-@for (crew of crewlist; track crew) {
+@for (crew of crewList; track crew) {
 <div class="crewMember">
-    <img [src]="crew.profileUrl" alt="crewmember">
-    <div class="crewInfo"><span>{{crew.firstName}} {{crew.lastName}}</span>
+    <img [src]="crew.avatar" alt="crewmember">
+    <div class="crewInfo"><span>{{crew.firstname}} {{crew.lastname}}</span>
         <br><span>{{crew.function}}</span>
-        <br><span>{{crew.email}} {{crew.phonenumber}}</span>
+        <br><span>{{crew.emails}} {{crew.phonenumbers}}</span>
     </div>
 </div>
 }

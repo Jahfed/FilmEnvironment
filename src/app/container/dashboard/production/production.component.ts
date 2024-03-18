@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProductionCardComponent } from './production-card/production-card.component';
 import { FilterComponent } from './filter/filter.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { ProductionCompaniesService } from '../../../services/production/production-companies.service';
+import { Productionlist } from '../../../interfaces/productionlist';
 
 @Component({
   selector: 'productions-list',
@@ -12,6 +14,14 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 })
 
 export class ProductionListComponent {
+  productionsList: Productionlist[] = [];
+  productionsService: ProductionCompaniesService = inject(ProductionCompaniesService);
+
+  constructor() {
+    this.productionsList = this.productionsService.getAllProductionData();
+  }
+
+  //this has to be put into a service
   productions = [{
     id: 1,
     title: "Sphinx",

@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.css'
 })
+
 export class CalendarComponent {
   year: number = 2024;
   days: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -15,7 +16,15 @@ export class CalendarComponent {
   date = new Date()
   currentDate: string = `${this.days[this.date.getDay()]} / ${this.date.getDate()}-${this.months[this.date.getMonth()]}-${this.date.getFullYear()}`;
   currentDay: string = `${this.date.getDate()}-${this.months[this.date.getMonth()]}`;
+  currentYear: number = this.date.getFullYear();
 
+  minYear() {
+    (this.year > (this.currentYear - 25)) ? this.year = this.year - 1 : this.year;
+  }
+
+  plusYear() {
+    (this.year < (this.currentYear + 15)) ? this.year = this.year + 1 : this.year;
+  }
 
   getDay(date: string, year: number) {
 

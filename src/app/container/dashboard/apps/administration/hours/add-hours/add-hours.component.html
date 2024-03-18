@@ -1,0 +1,19 @@
+<div class="hoursInput">
+    <div class="left">
+        <form class="addhours">
+            shooting day <input type="date" class="hour" #date> {{date.value}}
+            from: <input type="time" class="hour" #start> {{start.value}}
+            to: <input type="time" class="hour" #end> {{end.value}}
+            <input type="button" class="submit" value="submit hours"
+                (click)="addHours(date.value,start.value,end.value)">
+        </form>
+    </div>
+    <div class="right">
+        <ul class="myhourslist">
+            @for (hourItem of hoursList; track $index) {
+            <li>{{hourItem.date}} - {{hourItem.start}} till {{hourItem.end}} <a class="del" [id]="hourItem.id"
+                    (click)="removeHour(hourItem.id)">X</a><a class="edit">edit</a></li>
+            }
+        </ul>
+    </div>
+</div>

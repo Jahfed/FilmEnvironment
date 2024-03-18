@@ -1,11 +1,20 @@
 <p class="date">Today is {{currentDate}}</p>
-<span>Select Date: </span><input type="date" class="dateselector">
+
+
+<div class="yearselector">
+    <div class="element" (click)="minYear()">-</div>
+    <div class="element">{{year}}</div>
+    <div class="element" (click)="plusYear()">+</div>
+</div>
+
+<span>Select Date: </span><input type="date" class="dateselector" id="dateSelected">
+
 <div class="calendar">
     @for (month of yearCalendar(year); track $index) {
-    <h3>{{months[$index]}}{{currentDay}}</h3>
+    <h3>{{months[$index]}} {{currentDay}}</h3>
     <div class="month">
         @for (day of month; track $index) {
-        <div [ngClass]="{'currentday': (day===currentDay),'day': (day !== currentDay)}">
+        <div [ngClass]="{'currentday': (day===currentDay),'day': (day !== currentDay)}" [id]="day">
             {{day}}-{{year}}<br>{{days[getDay(day,year)]}}</div>
         }
     </div>

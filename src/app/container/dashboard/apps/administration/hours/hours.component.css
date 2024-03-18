@@ -1,0 +1,28 @@
+.hoursList {
+    margin-left: 20%;
+    margin-top: 3%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.hour {
+    background-color: rgba(17, 2, 72, 0.274);
+    margin: 5px;
+    padding: 10px;
+    width: 20%;
+    font-size: 14px;
+    text-align: justify;
+    text-transform: capitalize;
+    border-left: 1px solid black;
+    box-shadow: 2px 2px 2px rgba(16, 0, 94, 0.342);
+    border-radius: 0 5px 5px 0px;
+    cursor: pointer;
+}
+
+.hour:hover {
+    border: 1px solid rgba(255, 255, 255, 0.731);
+    border-collapse: collapse;
+    transition: all 0.1s;
+}

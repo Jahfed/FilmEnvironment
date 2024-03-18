@@ -1,0 +1,82 @@
+.hoursInput {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    align-items: flex-start;
+    width: 60%;
+}
+
+.addhours {
+    flex-direction: column;
+}
+
+.right {
+    width: 30%;
+}
+
+
+.hour {
+    border-style: none;
+    border-radius: 3px;
+    border-left: 5px solid green;
+    color: black;
+    width: 10%;
+    height: 25px;
+    font-size: 15px;
+    padding: 5px;
+    margin: 5px;
+    margin-bottom: 15px;
+}
+
+.submit {
+    margin: 10px;
+    border-style: none;
+    color: black;
+    font-size: 14px;
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: antiquewhite;
+}
+
+.myhourslist {
+    margin-top: 25px;
+    padding: 5px;
+    text-align: left;
+    display: grid;
+    grid-column: 1fr 1fr 1fr;
+
+    li {
+        margin: 5px;
+        margin-left: auto;
+    }
+
+
+    a {
+        font-size: 12px;
+        padding: 5px;
+        margin: 5px;
+        margin-left: 20px;
+        text-decoration: none;
+        background-color: rgba(24, 5, 106, 0.273);
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    a:hover {
+        color: aquamarine
+    }
+}
