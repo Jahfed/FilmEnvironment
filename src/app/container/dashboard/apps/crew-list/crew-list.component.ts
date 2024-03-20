@@ -15,7 +15,9 @@ export class CrewListComponent {
   crewService: CrewdataService = inject(CrewdataService);
 
   constructor() {
-    this.crewList = this.crewService.getAllCrewData();
+    this.crewService.getAllCrewData().then((crewList: Crewlist[]) => {
+      this.crewList = crewList;
+    }).catch(error => { alert(error) });
   }
 
 }

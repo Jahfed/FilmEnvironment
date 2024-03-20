@@ -1,0 +1,163 @@
+<div class="callsheet">
+    <div class="header">
+        @for (send of sendsList; track $index) {
+        <h5>
+            <tr>
+                <td><span class="key">{{send[0]}} :</span></td>
+                <td> @for (crew of send[1]; track $index) {
+                    {{crew}},
+                    }</td>
+            </tr>
+
+
+        </h5>
+        }
+
+    </div>
+    <p class="invoice">{{invoice}}</p>
+    <div class="callsheetcontacts">
+        <table class="phonenumbers">
+            @for (contact of contacts1; track $index) {
+
+            <tr>
+                <td>{{contact.function}}</td>
+                <td>{{contact.name}}</td>
+                @if (contact.showphone) {
+                <td>{{contact.phonenumber}}</td>
+                }
+            </tr>
+            }
+        </table>
+        <table class="phonenumbers">
+            @for (contact of contacts2; track $index) {
+
+            <tr>
+                <td>{{contact.function}}</td>
+                <td>{{contact.name}}</td>
+                @if (contact.showphone) {
+                <td>{{contact.phonenumber}}</td>
+                }
+            </tr>
+            }
+        </table>
+    </div>
+
+    <div class="calls">
+        <p class="head">CALLS</p>
+        <table class="calltimes">
+            @for (call of calls; track $index) {
+            <tr>
+                <td>{{call.id}}</td>
+                <td>{{call.time}}</td>
+            </tr>
+            }
+        </table>
+
+    </div>
+
+    <div class="locations">
+        <p class="head">LOCATION</p>
+        <table class="locationList">
+            @for (location of locations; track $index) {
+            @if (location.companymove) {
+            <tr>
+                <td class="move" colspan="2">COMPANYMOVE</td>
+            </tr>
+            }
+            <tr>
+                <td>{{location.description}}</td>
+                <td>
+                    <address>{{location.address}}</address>
+                </td>
+            </tr>
+
+            }
+        </table>
+        <p class="weather">sunset: {{weather.sunset}},sundown: {{weather.sundown}} -- weather: {{weather.weather}} /
+            Min {{weather.min}}C Max {{weather.max}}C</p>
+    </div>
+
+    <div class="important">
+        <p class="head">
+            BELANGRIJKE NOTES!
+        </p>
+        Notes in deze!
+    </div>
+
+    <div class="planning">
+        <p class="head">
+            DRAAIPLANNING
+        </p>
+        <table class="shootingschedule">
+            <tr>
+                @for (th of scenesHead; track $index) {
+                <th>{{th}}</th>
+                }
+            </tr>
+            @for (scene of scenesList; track $index) {
+            <tr>
+                <td>{{scene.scene}}</td>
+                <td>{{scene.scriptday}}</td>
+                <td>{{scene.intExt}}</td>
+                <td>{{scene.daynight}}</td>
+                <td>{{scene.location}}</td>
+                <td>{{scene.synopsis}}</td>
+                <td>{{scene.castid}}</td>
+                <td>{{scene.extras}}</td>
+                <td>{{scene.pageEights}}/8</td>
+            </tr>
+            }
+        </table>
+    </div>
+
+    <div class="cast">
+        Idi CAST ID 1 CALL 07:30 MU 08:00 KL 07:30
+        Piwi CAST ID 2 CALL 08:00 MU 07:00 KL 07:30
+    </div>
+
+    <div class="extras">
+        SC 1.01 30 Leerlingen CALL 07:30
+        SC 1.01 20 Leraren CALL 07:30
+    </div>
+
+    <div class="directorsnotes">
+        SC 1.04 Extra tijd voor huilscene
+    </div>
+
+    <div class="vehicles">
+        SC 1.01 VOLVO 2-DDD-30 CALL 07:30
+    </div>
+
+    <div class="extracrew">
+
+    </div>
+
+    <div class="technical"></div>
+
+    <div class="art">
+        PROP schooltasse
+        PROPS 100x Fietsen
+    </div>
+
+    <div class="makeup"></div>
+
+    <div class="wapons"></div>
+
+    <div class="specialfx"></div>
+
+    <div class="catering"></div>
+
+    <div class="notes" id="general"></div>
+
+    <div class="notes" id="production"></div>
+
+    <div class="notes" id="location"></div>
+
+    <div class="maps"></div>
+
+    <div class="hotels"></div>
+
+    <div class="transport"></div>
+
+    <div class="preview"></div>
+</div>

@@ -12,16 +12,18 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    cursor: pointer;
 
     .element {
         padding: 3px;
         margin: 3px;
-        cursor: pointer;
+
     }
 
     .element:hover {
         color: orange;
         font-weight: bold;
+        cursor: pointer;
     }
 }
 
@@ -73,11 +75,13 @@
     cursor: pointer;
 }
 
+
 .day:hover,
 .currentday:hover {
     box-shadow: 2px 2px 2px rgba(12, 1, 94, 0.264);
     border-style: none;
     background-color: rgba(20, 0, 169, 0.1);
+    cursor: pointer;
 }
 
 .currentday {

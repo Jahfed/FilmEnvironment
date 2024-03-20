@@ -168,5 +168,4 @@ export class ProductionCompaniesService {
     return this.productionList.find(production => production.id === id);
   }
 
-  constructor() { }
 }

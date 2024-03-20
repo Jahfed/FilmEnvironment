@@ -1,0 +1,19 @@
+<div class="planning">
+    @for (filmday of planning; track $index) {
+    <div class="plan">
+        <h1>FILMDAY: {{$index+1}}<br>
+            {{filmday.date.toLocaleString("nl-NL",{weekday:"long"}).toUpperCase()}}
+            {{filmday.date.getDate()}}-{{filmday.date.toLocaleString("nl-NL",{month:"long"})}}-{{filmday.date.getFullYear()}}
+        </h1>
+
+        @for (scene of filmday.sceneIds; track $index) {
+        <div class="scenestrip night">{{scene}}</div>
+        }
+        <h1>END OF DAY //
+            {{filmday.date.toLocaleString("nl-NL",{weekday:"long"}).toUpperCase()}}
+            {{filmday.date.getDate()}}-{{filmday.date.toLocaleString("nl-NL",{month:"long"})}}-{{filmday.date.getFullYear()}}
+        </h1>
+    </div>
+    }
+
+</div>

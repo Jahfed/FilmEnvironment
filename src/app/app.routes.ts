@@ -8,9 +8,12 @@ import { CalendarComponent } from './container/dashboard/apps/calendar/calendar.
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HoursComponent } from './container/dashboard/apps/administration/hours/hours.component';
 import { AddHoursComponent } from './container/dashboard/apps/administration/hours/add-hours/add-hours.component';
+import { CallsheetComponent } from './container/dashboard/apps/callsheets/callsheet/callsheet.component';
+import { PlanningComponent } from './container/dashboard/apps/planning/planning.component';
 
 export const routes: Routes = [
-    { 'path': '', redirectTo: 'Login', pathMatch: 'full' },
+    { 'path': 'CS', component: CallsheetComponent },
+    { 'path': '', redirectTo: 'CS', pathMatch: 'full' },
     { 'path': 'Login', component: LoginComponent },
     {
         'path': '', component: LoginComponent, children: [
@@ -25,10 +28,12 @@ export const routes: Routes = [
         'path': ':production', children: [
             { 'path': 'Crew', component: CrewListComponent },
             { 'path': 'Script', component: ScriptreaderComponent },
-            { 'path': 'Planning', component: ProductionListComponent },
+            { 'path': 'Productions', component: ProductionListComponent },
             { 'path': 'Calendar', component: CalendarComponent },
             { 'path': 'Hours', component: HoursComponent },
-            { 'path': 'MyHours', component: AddHoursComponent }
+            { 'path': 'MyHours', component: AddHoursComponent },
+            { 'path': 'Callsheet', component: CallsheetComponent },
+            { 'path': 'Planning', component: PlanningComponent }
         ]
     },
     {

@@ -11,10 +11,11 @@
 
 <div class="calendar">
     @for (month of yearCalendar(year); track $index) {
-    <h3>{{months[$index]}} {{currentDay}}</h3>
+    <h3>{{months[$index]}} {{year}}</h3>
     <div class="month">
         @for (day of month; track $index) {
-        <div [ngClass]="{'currentday': (day===currentDay),'day': (day !== currentDay)}" [id]="day">
+        <div [ngClass]="{'currentday': (day===currentDay && year===currentYear),'day': (day !== currentDay || year !== currentYear)}"
+            [id]="day">
             {{day}}-{{year}}<br>{{days[getDay(day,year)]}}</div>
         }
     </div>

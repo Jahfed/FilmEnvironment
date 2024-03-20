@@ -1,0 +1,42 @@
+.planning {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 5px;
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px rgba(15, 0, 98, 0.317);
+}
+
+.planning,
+div,
+h1 {
+    background-color: white;
+    color: black;
+}
+
+h1 {
+    font-size: 16px;
+}
+
+.plan {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid black;
+}
+
+.scenestrip {
+    text-align: left;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.scenestrip:hover {
+    background-color: rgba(137, 43, 226, 0.313);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.241);
+}
+
+.night {
+    background-color: rgba(85, 0, 138, 0.546);
+}
