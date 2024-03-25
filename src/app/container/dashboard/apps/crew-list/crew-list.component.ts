@@ -17,7 +17,7 @@ export class CrewListComponent {
   constructor() {
     this.crewService.getAllCrewData().then((crewList: Crewlist[]) => {
       this.crewList = crewList;
-    }).catch(error => { alert(error) });
+    }).catch(error => { console.log(error); });
   }
 
 }

@@ -2,7 +2,7 @@
     <div class="header">
         @for (send of sendsList; track $index) {
         <h5>
-            <tr>
+            <tr draggable="true">
                 <td><span class="key">{{send[0]}} :</span></td>
                 <td> @for (crew of send[1]; track $index) {
                     {{crew}},
@@ -18,8 +18,8 @@
     <div class="callsheetcontacts">
         <table class="phonenumbers">
             @for (contact of contacts1; track $index) {
-
-            <tr>
+            `
+            <tr draggable="true">
                 <td>{{contact.function}}</td>
                 <td>{{contact.name}}</td>
                 @if (contact.showphone) {
@@ -31,7 +31,7 @@
         <table class="phonenumbers">
             @for (contact of contacts2; track $index) {
 
-            <tr>
+            <tr draggable="true">
                 <td>{{contact.function}}</td>
                 <td>{{contact.name}}</td>
                 @if (contact.showphone) {
@@ -42,20 +42,30 @@
         </table>
     </div>
 
-    <div class="calls">
+    <div class="calls" draggable="true">
         <p class="head">CALLS</p>
-        <table class="calltimes">
+        <table class="calltimes" draggable="true">
+
             @for (call of calls; track $index) {
+
+            @if (call.space===1) {
             <tr>
+                <td class="spacer"></td>
+                <td class="spacer"></td>
+            </tr>
+            }
+
+            <tr draggable="true">
                 <td>{{call.id}}</td>
                 <td>{{call.time}}</td>
             </tr>
+
             }
         </table>
 
     </div>
 
-    <div class="locations">
+    <div class="locations" draggable="true">
         <p class="head">LOCATION</p>
         <table class="locationList">
             @for (location of locations; track $index) {
@@ -64,7 +74,7 @@
                 <td class="move" colspan="2">COMPANYMOVE</td>
             </tr>
             }
-            <tr>
+            <tr draggable="true">
                 <td>{{location.description}}</td>
                 <td>
                     <address>{{location.address}}</address>
@@ -78,13 +88,14 @@
     </div>
 
     <div class="important">
-        <p class="head">
+        <p class="head important">
             BELANGRIJKE NOTES!
         </p>
-        Notes in deze!
+        <p class="center">Notes in deze! </p>
+
     </div>
 
-    <div class="planning">
+    <div class="planning" draggable="true">
         <p class="head">
             DRAAIPLANNING
         </p>
@@ -95,7 +106,7 @@
                 }
             </tr>
             @for (scene of scenesList; track $index) {
-            <tr>
+            <tr draggable="true">
                 <td>{{scene.scene}}</td>
                 <td>{{scene.scriptday}}</td>
                 <td>{{scene.intExt}}</td>
@@ -104,60 +115,341 @@
                 <td>{{scene.synopsis}}</td>
                 <td>{{scene.castid}}</td>
                 <td>{{scene.extras}}</td>
-                <td>{{scene.pageEights}}/8</td>
+                <td>{{scene.pageEights | eightsPages}}</td>
+            </tr>
+            }
+            <tr>
+
+                <td class="total" colspan="8"> Total Pages </td>
+                <td><b>{{totalPages | eightsPages}}</b></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="cast">
+        <p class="head">
+            CAST
+        </p>
+        <table class="shootingschedule">
+            <tr>
+                @for (th of castHead; track $index) {
+                <th>{{th}}</th>
+                }
+            </tr>
+            @for (cast of castList; track $index) {
+            <tr>
+                <td>{{cast.castId}}</td>
+                <td>{{cast.name}}</td>
+                <td>{{cast.role}}</td>
+                <td>{{cast.pickUp || "EV"}}</td>
+                <td>{{cast.from || "--"}} </td>
+                <td>{{cast.driver || "--"}}</td>
+                <td>{{cast.calltime}}</td>
+                <td>{{cast.location}}</td>
+                <td>{{cast.wardrobetime}}</td>
+                <td>{{cast.makeuptime}}</td>
+                <td>{{cast.blocking || "--"}}</td>
+                <td>{{cast.onSet}}</td>
             </tr>
             }
         </table>
     </div>
 
-    <div class="cast">
-        Idi CAST ID 1 CALL 07:30 MU 08:00 KL 07:30
-        Piwi CAST ID 2 CALL 08:00 MU 07:00 KL 07:30
-    </div>
-
     <div class="extras">
-        SC 1.01 30 Leerlingen CALL 07:30
-        SC 1.01 20 Leraren CALL 07:30
+        <p class="head">
+            EXTRAS
+        </p>
+        <table class="shootingschedule">
+            <tr>
+                @for (th of extrasHead; track $index) {
+                <th>{{th}}</th>
+                }
+            </tr>
+            @for (extra of extrasList; track $index) {
+            <tr>
+                <td>{{extra.sceneDescription}}</td>
+                <td>{{extra.roleDescription}}</td>
+                <td>{{extra.call || "--"}}</td>
+                <td>{{extra.location || "--"}}</td>
+                <td>{{extra.wardrobe || "--"}}</td>
+                <td>{{extra.blocking || "--"}}</td>
+                <td>{{extra.onSet || "--"}}</td>
+            </tr>
+            }
+        </table>
     </div>
 
     <div class="directorsnotes">
-        SC 1.04 Extra tijd voor huilscene
+        <p class="head">{{directorsNotes[0].description}}</p>
+        @for (note of directorsNotes; track $index) {
+        <p class="notes">{{note.content}}</p>
+        }
     </div>
 
     <div class="vehicles">
-        SC 1.01 VOLVO 2-DDD-30 CALL 07:30
+        <p class="head">
+            VEHICLES
+        </p>
+        <table class="shootingschedule">
+            <tr>
+                @for (th of vehicleHead; track $index) {
+                <th>{{th}}</th>
+                }
+            </tr>
+            @for (vehicle of vehicleList; track $index) {
+            <tr draggable="true">
+                <td>{{vehicle.sceneId}}</td>
+                @if (vehicle.amount) {
+                <td>{{vehicle.amount}} {{vehicle.vehicle}}s</td>
+                }@else{
+                <td>{{vehicle.vehicle}}</td>
+                }
+                <td>{{vehicle.location}}</td>
+                <td>{{vehicle.call}}</td>
+                <td>{{vehicle.contact}}</td>
+                <td>{{vehicle.onSet}}</td>
+            </tr>
+            }
+        </table>
     </div>
 
     <div class="extracrew">
+        <p class="head">
+            EXTRA CREW
+        </p>
+        <table class="shootingschedule">
+            <tr>
+                @for (th of extraCrewHeader; track $index) {
+                <th>{{th}}</th>
+                }
+            </tr>
+            @for (crew of extraCrewList; track $index) {
+            <tr>
+                <td>{{crew.function}}</td>
+                <td>{{crew.name}}</td>
+                <td>{{crew.phonenumber}}</td>
+                <td>{{crew.call}}</td>
+            </tr>
+            }
+        </table>
+    </div>
+    @if (cameraNotes.length>0) {
+    <div>
+        <p class="head">
+            CAMERA & TECHNICAL
+        </p>
+        <table class="extend">
+            @for (note of cameraNotes; track $index) {
+            <tr class="">
+                <td class="grids short">{{note.scene}}</td>
+                <td class="grids">
+                    {{note.notes.cameraNote}}
+                </td>
+            </tr>
+
+            }
+
+        </table>
 
     </div>
+    }
 
-    <div class="technical"></div>
-
+    @if (artNotes.length>0) {
     <div class="art">
-        PROP schooltasse
-        PROPS 100x Fietsen
+        <p class="head">
+            ART
+        </p>
+        <table class="extend">
+            @for (note of artNotes; track $index) {
+            <tr class="">
+                <td class="grids short">{{note.scene}}</td>
+                <td class="grids">
+                    {{note.notes.artNote}}
+                </td>
+            </tr>
+
+            }
+
+        </table>
+    </div>
+    }
+    @if (makeupNotes.length>0) {
+    <div class="makeup">
+        <p class="head">
+            MAKEUP
+        </p>
+        <table class="extend">
+            @for (note of makeupNotes; track $index) {
+            <tr class="">
+                <td class="grids short">{{note.scene}}</td>
+                <td class="grids">
+                    {{note.notes.makeupNote}}
+                </td>
+            </tr>
+
+            }
+
+        </table>
+    </div>
+    }
+
+    @if (waeponNotes.length>0) {
+    <div class="waepons">
+        <p class="head">
+            WAEPONS
+        </p>
+        <table class="extend">
+            @for (note of waeponNotes; track $index) {
+            <tr class="extend">
+                <td class="grids short">{{note.scene}}</td>
+                <td class="grids">
+                    {{note.notes.waeponsNote}}
+                </td>
+            </tr>
+
+            }
+
+        </table>
+    </div>
+    }
+    @if (fxNotes.length>0) {
+    <div class="specialfx">
+        <p class="head">
+            (SPECIAL) FX
+        </p>
+        <table class="extend">
+            @for (note of fxNotes; track $index) {
+            <tr class="">
+                <td class="grids short">{{note.scene}}</td>
+                <td class="grids">
+                    {{note.notes.fxNote}}
+                </td>
+            </tr>
+
+            }
+
+        </table>
+    </div>
+    }
+
+    <div>
+        <p class="head">
+            CATERING
+        </p>
+        <div class="catering">
+            @for (item of cateringList; track $index) {
+            <table class="cateringTable">
+
+                <tr>
+                    <td colspan="2">{{item[0]}}</td>
+                </tr>
+                @for (count of item[1]; track $index) {
+                <tr>
+                    <td>{{cateringObjects[$index]}}</td>
+                    <td>{{count}}</td>
+                </tr>
+                }
+                <tr>
+                    <td>{{cateringObjects[3]}}</td>
+                    <td>{{cateringTotals[$index]}}</td>
+                </tr>
+
+
+            </table>
+            }
+        </div>
     </div>
 
-    <div class="makeup"></div>
+    <div class="notes" id="general">
+        <p class="head">
+            ALGEMENE NOTES
+        </p>
+        @for (note of commonNotes; track $index) {
+        <p class="notes">{{note.content}}</p>
+        }
+        @for (note of locationNotes; track $index) {
+        <p class="notes">{{note.content}}</p>
+        }
+        <p class="note">{{socialmediaNotes}}</p>
+    </div>
 
-    <div class="wapons"></div>
+    <div class="notes" id="production">
+        <p class="head">
+            PRODUCTION NOTES
+        </p>
+        @for (note of productionNotes; track $index) {
+        <p class="notes">{{note.content}}</p>
+        }
+    </div>
 
-    <div class="specialfx"></div>
+    <div class="notes" id="location">
+        <p class="head">
+            LOCATION NOTES
+        </p>
+        @for (note of locationNotes; track $index) {
+        <p class="notes">{{note.content}}</p>
+        }
+    </div>
 
-    <div class="catering"></div>
+    <div class="maps">
+        @for (map of locationMaps; track $index) {
+        <img src="map" alt="map">
+        }
+    </div>
 
-    <div class="notes" id="general"></div>
+    <div class="hotels">
+        <p class="head">
+            HOTEL
+        </p>
 
-    <div class="notes" id="production"></div>
+        <table class="shootingschedule">
+            <tr>
+                @for (th of hotelHeader; track $index) {
+                <th>{{th}}</th>
+                }
+            </tr>
+            @for (hotel of hotelList; track $index) {
+            <tr>
+                <td>{{hotel.date}}</td>
+                <td>{{hotel.hotelName}}</td>
+                <td>{{hotel.hotelAddress}}</td>
+                <td>{{hotel.checkIn}}</td>
+                <td>{{hotel.checkOut}}</td>
+                <td>{{hotel.persons}}</td>
+            </tr>
+            }
+        </table>
+    </div>
 
-    <div class="notes" id="location"></div>
+    <div class="transport">
+        <p class="head">
+            TRANSPORTSCHEMA
+        </p>
 
-    <div class="maps"></div>
+        <table class="shootingschedule">
+            <tr>
+                @for (th of transportHeader; track $index) {
+                <th>{{th}}</th>
+                }
+            </tr>
+            @for (transport of transportSchedule; track $index) {
+            <tr>
+                <td>{{transport.driver}}</td>
+                <td>{{transport.mobile}}</td>
+                <td>{{transport.description}}</td>
 
-    <div class="hotels"></div>
+                @if (transport.transport) {
+                <td>{{transport.pickupTime || "-"}}</td>
+                <td>{{transport.pickupLocation || "-"}}</td>
+                <td>{{transport.destination || "-"}}</td>
 
-    <div class="transport"></div>
+                }
 
-    <div class="preview"></div>
+                <td>{{transport.arrivalTime || "-"}}</td>
+            </tr>
+            }
+        </table>
+    </div>
+
+    <div class="preview">Previews...</div>
 </div>

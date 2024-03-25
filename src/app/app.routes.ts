@@ -10,31 +10,42 @@ import { HoursComponent } from './container/dashboard/apps/administration/hours/
 import { AddHoursComponent } from './container/dashboard/apps/administration/hours/add-hours/add-hours.component';
 import { CallsheetComponent } from './container/dashboard/apps/callsheets/callsheet/callsheet.component';
 import { PlanningComponent } from './container/dashboard/apps/planning/planning.component';
+import { authorizedGuard } from './login/authorized.guard';
+import { Role } from './login/role';
+import { UnauthorizedComponent } from './login/unauthorized/unauthorized.component';
 
 export const routes: Routes = [
-    { 'path': 'CS', component: CallsheetComponent },
-    { 'path': '', redirectTo: 'CS', pathMatch: 'full' },
+    { 'path': '', title: "Login", redirectTo: 'Login', pathMatch: 'full' },
     { 'path': 'Login', component: LoginComponent },
     {
-        'path': '', component: LoginComponent, children: [
+        'path': 'Dashboard', title: "Dashboard", component: DashboardComponent, children: [
             { 'path': 'Production', component: ProductionListComponent },
             { 'path': 'Crew', component: CrewListComponent },
             { 'path': 'Script', component: ScriptreaderComponent },
             { 'path': 'Planning', component: ProductionListComponent },
-            { 'path': 'Calendar', component: CalendarComponent }
-        ]
-    },
-    {
-        'path': ':production', children: [
-            { 'path': 'Crew', component: CrewListComponent },
-            { 'path': 'Script', component: ScriptreaderComponent },
-            { 'path': 'Productions', component: ProductionListComponent },
             { 'path': 'Calendar', component: CalendarComponent },
             { 'path': 'Hours', component: HoursComponent },
             { 'path': 'MyHours', component: AddHoursComponent },
-            { 'path': 'Callsheet', component: CallsheetComponent },
-            { 'path': 'Planning', component: PlanningComponent }
-        ]
+            { 'path': 'Callsheet', component: CallsheetComponent }
+        ],
+        canActivate: [authorizedGuard],
+        data: {
+            roles: [Role.LINEPRODUCER]
+        }
+    },
+    {
+        'path': '', children: [
+            { 'path': 'Production', component: ProductionListComponent },
+            { 'path': 'Calendar', component: CalendarComponent },
+            { 'path': 'Planning', component: PlanningComponent }],
+        canActivate: [authorizedGuard],
+        data: {
+            roles: [Role.LINEPRODUCER]
+        }
+
+    },
+    {
+        'path': 'unauthorized', component: UnauthorizedComponent
     },
     {
         'path': '**', pathMatch: 'full', component: PagenotfoundComponent
